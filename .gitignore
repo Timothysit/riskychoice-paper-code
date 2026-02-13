@@ -1,0 +1,19 @@
+# Ignore generated data
+processed_data/
+figures/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Environments
+.venv/
+env/
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db

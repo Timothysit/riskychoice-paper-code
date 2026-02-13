@@ -1,0 +1,27 @@
+[project]
+name = "riskychoice-paper-code"
+version = "0.1.0"
+description = "Decoding analysis and plotting"
+requires-python = ">=3.11"
+
+dependencies = [
+  "h5py==3.13.0",
+  "hdf5storage==0.2.2",
+  "joblib==1.5.1",
+  "loguru==0.7.3",
+  "matplotlib==3.10.8",
+  "numpy==2.4.0",
+  "pandas==2.3.3",
+  "pexpect==4.9.0",
+  "python-dotenv==1.2.1",
+  "PyYAML==6.0.3",
+  "rich==14.2.0",
+  "scanimage-tiff-reader==1.4.1.4",
+  "scikit-learn==1.8.0",
+  "scipy==1.16.3",
+  "scikit-image==0.25.2",
+  "tqdm==4.67.1",
+  "typer==0.21.1",
+  "opencv-python-headless==4.11.0.86",
+  "sciplotlib>=0.0.7",
+]

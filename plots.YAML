@@ -1,0 +1,50 @@
+# The following files contains parameters that are used for plotting decoding analysis in the paper
+plot-windowed-decoding:
+  # These parameters plots the windowed decoding results and the cross-window decoding results
+  # The result of decoding abstract choice ('LotteryChoice') is plotted in Figure 2i 
+  # The result of decoding spatial choice ('LeftChoice') is plotted in Figure 2k 
+  # The result for decoding whisker location ('AirPuffLeft') is plotted in Figure S5e
+  # The results corresponding to cross-window decoding is plotted in Figure S5g,h,i
+  fig_folder: '/home/timsit/matchingp/reports/figures/risky_choice_decoding/updated_p_state_0p7_20251028'
+  plots_to_make: ['windowed_decoding']
+  data_type: 'decoding_results'
+  subject: ['IAA-1125880', 'OLI-M-0021',
+            'OLI-M-0022', 'OLI-M-0041', 'OLI-M-0042', 'OLI-M-0057']
+  y_target: ['AirPuffLeft', 'LotteryChoice', 'LeftChoice']
+  feature_used: ['pixel_ave']
+  state_names: ['Engaged', 'Disengaged']
+  row_names: ['ChR', 'ChL']
+  col_names: ['PfR', 'PfL']
+  xlabel:  'Time from stimulus onset (s)'
+  ylabel_dict:
+    AirPuffLeft: Decoding airpuff left/right
+    LeftChoice: Decoding left/right choice
+    LotteryChoice: Decoding lottery vs surebet
+  vert_line_times: [0, 1, 2]
+  vert_line_labels: ['Sound', 'Airpuff', 'Choice']
+  vert_line_styles: ['--', '--', '--']
+  plot_ave_across_mice: 1
+  resample_states: 0
+  min_trials: 10  # min trials to do averaging
+  balance_states_trialcounts : 1
+  model_name: 20251028-riskychoice
+  date: all
+  engaged_state_color: '#0d0080'
+  disengaged_state_color: '#ffa61a'
+  xtick_locs: [-1, 0, 1, 2, 3, 4]
+  ytick_locs: 
+    AirPuffLeft: [0.5, 0.75, 1]
+    LotteryChoice: [0.5, 0.6, 0.7, 0.8]
+    LeftChoice: [0.5, 0.75, 1]
+  ylimits: 
+    AirPuffLeft: [0.45, 1]
+    LotteryChoice: [0.45, 0.8]
+    LeftChoice: [0.45, 1.0]
+plot-single-region-decoding: 
+  # These parameters are used for plotting decoding using single region widefield activity 
+  # (compared with using the whole brain) in Figure S5F 
+  plots_to_make: ['riskychoice_single_region_decoding']
+  data_type: 'decoding_results'
+  include_brainmap: 1
+  fig_folder: '/home/timsit/matchingp/reports/figures/risky_choice_decoding/single-region-decoding/2025-10-28-p-0p7'
+  model_name: '20251028-riskychoice-single-region'

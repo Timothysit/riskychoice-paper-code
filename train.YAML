@@ -1,0 +1,66 @@
+# The following files contains parameters that are used for running decoding analysis in the paper
+window-decoding:
+  # These parameters are used for decoding of task variables (air puff left/right location, 
+  # left/right choice, and lottery/surebet choice)
+  # across time windows using widefield activity, and also performs cross-window decoding.
+  # The result of decoding abstract choice ('LotteryChoice') is plotted in Figure 2i 
+  # The result of decoding spatial choice ('LeftChoice') is plotted in Figure 2k 
+  # The result for decoding whisker location ('AirPuffLeft') is plotted in Figure S5e
+  # These decoding results are also used in Figure S5F (corresponding to decoding performance using 
+  # activity from all regions)
+  # The results corresponding to cross-window decoding is plotted in Figure S5g,h,i
+  # Refer to plots.YAML for the parameters used for making the plots from these results.
+  dataset_to_fit: mouse
+  subjects_to_fit : ['OLI-M-0021', 'IAA-1125880', 
+                     'OLI-M-0022', 'OLI-M-0041', 'OLI-M-0042', 'OLI-M-0057']
+                     # 'IAA-1125879' excluded
+  model_type: WFdecoder
+  balance_targets: ['LeftChoice', 'AirPuffLeft']
+  y_targets: ['AirPuffLeft', 'LeftChoice', 'LotteryChoice'] 
+  states_to_use: ['engaged', 'disengaged']
+  state_p_threshold: 0.7   # previously hard-coded to be 0.8
+  weight_types : ['coefs']
+  balancing_method: min_condition
+  activity_to_use : pixel_ave
+  protocol: ['RiskyChoice']
+  combine_all_sessions: 1
+  resample_states: 0   
+  run_in_parallel: 1
+  decoding_time_start: -1
+  decoding_time_end: 4
+  decoding_time_step: 0.03
+  decoding_bin_width: 0.25
+  num_cv_repeats: 10  # number of times to repeat CV for each time window
+  balance_states_trialcounts: 1
+  fit_each_feature: 0  # If set to 1, this does the decoding per region. 
+  do_across_window_decoding: 1  # If set to 1, this will do train/test in different windows, note, this takes some time
+  model_name: 20251028-riskychoice
+single-region-decoding:
+  # These parameters are used for decoding task variables using single region widefield activity 
+  # The results are presented in Figure S5F (corresponding to decoding performance using activiy from 
+  # each individual regions)
+  dataset_to_fit: mouse
+  subjects_to_fit : ['OLI-M-0021', 'IAA-1125880', 
+                     'OLI-M-0022', 'OLI-M-0041', 'OLI-M-0042', 'OLI-M-0057']
+                     # 'IAA-1125879' excluded
+  model_type: WFdecoder
+  balance_targets: ['LeftChoice', 'AirPuffLeft']
+  y_targets: ['AirPuffLeft', 'LeftChoice', 'LotteryChoice'] 
+  states_to_use: ['engaged', 'disengaged']
+  state_p_threshold: 0.7   # previously hard-coded to be 0.8
+  weight_types : ['coefs']
+  balancing_method: min_condition
+  activity_to_use : pixel_ave
+  protocol: ['RiskyChoice']
+  combine_all_sessions: 1
+  resample_states: 0  
+  run_in_parallel: 1
+  decoding_time_start: -1
+  decoding_time_end: 4
+  decoding_time_step: 0.03
+  decoding_bin_width: 0.25
+  num_cv_repeats: 10  # number of times to repeat CV for each time window
+  balance_states_trialcounts: 1
+  fit_each_feature: 1  # If set to 1, this does the decoding per region. 
+  do_across_window_decoding: 0  # If set to 1, this will do train/test in different windows, note, this takes some time
+  model_name: 20251028-riskychoice-single-region
