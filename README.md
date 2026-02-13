@@ -46,7 +46,7 @@ You can obtain npy-matlab from: https://github.com/kwikteam/npy-matlab
 
 ## Generating plots for the figures 
 
-Assuming you have the analyzed data in the form:
+Assuming you have the analyzed data (in `PROCESSED_DATA_DIR` or `PROCESSED_DATA_DIR/decoding`) in the form:
 
 `IAA-1125880_all_None_locaNMF_decoding_AirPuffLeft_using_pixel_ave_20251028-riskychoice.npz`
 
